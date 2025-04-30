@@ -16,8 +16,8 @@ const props = defineProps({
 </script>
 <style>
 .login input {
-  border-radius: 10px;
-  height: 100%;
-  width: 70%;
+  border-radius: 4px;
+  height: 40px;
+  width: 100%;
 }
 </style>
