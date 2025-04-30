@@ -30,7 +30,17 @@ const props = defineProps({
 
 <style scoped>
 svg {
-  height: 25px;
-  width: 25px;
+  height: 15px;
+  width: 15px;
+  margin: 10px 5px 0px 30px;
+}
+div {
+  display: flex;
+  align-items: left;
+}
+
+h5 {
+  padding-top: 7px;
+  color: #aa0000;
 }
 </style>
