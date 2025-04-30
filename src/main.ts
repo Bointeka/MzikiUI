@@ -7,10 +7,11 @@ import axios from 'axios'
 
 const app = createApp(Main)
 const api = axios.create({
-  baseURL: process.env.BASE_URL,
+  baseURL: 'http://localhost:8080/api/',
 })
 
 app.use(router)
+app.use(api)
 
 app.mount('#main')
 

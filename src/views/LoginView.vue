@@ -13,7 +13,7 @@
     <VInput
       :label="userLabel.label"
       :placeHolder="userLabel.placeHolder"
-      @value="(val) => (loginModel.userName = val)"
+      @value="(val) => (loginModel.username = val)"
     />
     <VInput
       :label="passwordLabel.label"
@@ -27,6 +27,8 @@
 <script setup lang="ts">
 import VInput from '../components/VInput.vue'
 import { reactive } from 'vue'
+import api from '../main.ts'
+
 const userLabel = reactive({
   label: 'Email or Username',
   placeHolder: 'Email or Username',
@@ -36,10 +38,12 @@ const passwordLabel = reactive({
   placeHolder: 'Password',
 })
 const loginModel = reactive({
-  userName: '',
+  username: '',
   password: '',
 })
-function login() {}
+function login() {
+  api.post('/login', loginModel)
+}
 </script>
 
 <style>
