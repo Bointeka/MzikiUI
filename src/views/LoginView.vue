@@ -40,12 +40,12 @@
     <VInput
       :label="userLabel.label"
       :placeHolder="userLabel.placeHolder"
-      @value="(val) => (modelUpdate.email = val)"
+      @value="(val) => (loginUser._email = val)"
     />
     <VInput
       :label="passwordLabel.label"
       :placeHolder="passwordLabel.placeHolder"
-      @value="(val) => (modelUpdate.password = val)"
+      @value="(val) => (loginUser._password = val)"
     />
     <button @click="login">Login</button>
   </div>
@@ -67,13 +67,9 @@ const passwordLabel = reactive({
   placeHolder: 'Password',
 })
 
-const modelUpdate = reactive({
-  email: '',
-  password: '',
-})
+const loginUser = new loginModel('', '')
 
 function login() {
-  const loginUser = new loginModel(modelUpdate.email, modelUpdate.password)
   api.post('/authentication/login', loginUser)
 }
 </script>

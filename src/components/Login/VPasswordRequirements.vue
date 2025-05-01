@@ -1,0 +1,67 @@
+<script setup lang="ts">
+const req = defineProps({
+  requirement: String,
+  valid: Boolean,
+})
+</script>
+<template>
+  <div>
+    <li>
+      <svg
+        width="64px"
+        height="64px"
+        viewBox="0 0 16 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        :class="['checkbox', { valid: req.valid }]"
+      >
+        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+        <g
+          id="SVGRepo_tracerCarrier"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke="#CCCCCC"
+          stroke-width="0.192"
+          style="--darkreader-inline-stroke: var(--darkreader-text-cccccc, #c8c3bc)"
+          data-darkreader-inline-stroke=""
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM12.7071 5.70711L11.2929 4.29289L6.5 9.08579L4.70711 7.29289L3.29289 8.70711L6.5 11.9142L12.7071 5.70711Z"
+            style="--darkreader-inline-fill: var(--darkreader-background-000000, #000000)"
+            data-darkreader-inline-fill=""
+          ></path>
+        </g>
+        <g id="SVGRepo_iconCarrier">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M8 16C12.4183 16 16 12.4183 16 8C16 3.58172 12.4183 0 8 0C3.58172 0 0 3.58172 0 8C0 12.4183 3.58172 16 8 16ZM12.7071 5.70711L11.2929 4.29289L6.5 9.08579L4.70711 7.29289L3.29289 8.70711L6.5 11.9142L12.7071 5.70711Z"
+            style="--darkreader-inline-fill: var(--darkreader-background-000000, #000000)"
+            data-darkreader-inline-fill=""
+          ></path>
+        </g>
+      </svg>
+      <h4>{{ req.requirement }}</h4>
+    </li>
+  </div>
+</template>
+<style>
+li {
+  display: flex;
+  align-items: left;
+}
+
+.checkbox {
+  width: 3%;
+  height: 3%;
+  fill: #4d4d4d;
+}
+
+.checkbox .valid {
+  width: 3%;
+  height: 3%;
+  fill: #ffff15;
+}
+</style>
