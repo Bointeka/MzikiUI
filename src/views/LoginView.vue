@@ -40,19 +40,19 @@
     <VInput
       :label="userLabel.label"
       :placeHolder="userLabel.placeHolder"
-      @value="(val) => (loginModel.email = val)"
+      @value="(val) => (modelUpdate.email = val)"
     />
     <VInput
       :label="passwordLabel.label"
       :placeHolder="passwordLabel.placeHolder"
-      @value="(val) => (loginModel.password = val)"
+      @value="(val) => (modelUpdate.password = val)"
     />
     <button @click="login">Login</button>
   </div>
 </template>
 
 <script setup lang="ts">
-import VInput from '@/components/VInput.vue'
+import VInput from '@/components/Login/VInput.vue'
 import VNavBar from '@/components/VNavBar.vue'
 import { reactive } from 'vue'
 import api from '@/main.ts'
@@ -67,8 +67,14 @@ const passwordLabel = reactive({
   placeHolder: 'Password',
 })
 
+const modelUpdate = reactive({
+  email: '',
+  password: '',
+})
+
 function login() {
-  api.post('/login', loginModel)
+  const loginUser = new loginModel(modelUpdate.email, modelUpdate.password)
+  api.post('/authentication/login', loginUser)
 }
 </script>
 
